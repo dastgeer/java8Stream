@@ -1,0 +1,9 @@
+  //get group by key and list of that object from where key got ,it will group by based on key
+  Map<Integer, List<AutoReplenismentPSSStockRecord>> result =
+                pssStockRecordsByDataStatusList.stream().collect(Collectors.groupingBy(AutoReplenismentPSSStockRecord::getBillTo));
+
+  //get group by key and list of that specific string from where key got ,it will group by based on key and list of string of each object grouped
+        List<AutoReplenismentPSSStockRecord> list1 = (List<AutoReplenismentPSSStockRecord>) getPSSStockRecordsByDataStatus();
+        Map<Integer, List<Integer>> result1 =
+                pssStockRecordsByDataStatusList.stream().collect(Collectors.groupingBy(AutoReplenismentPSSStockRecord::getBillTo,Collectors.mapping(AutoReplenismentPSSStockRecord::getId,Collectors.toList())));
+  
